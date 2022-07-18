@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/nav_company"
+        android:title="거래처" />
+    <item
+        android:id="@+id/nav_customer"
+        android:title="고객" />
+    <item
+        android:id="@+id/nav_sharingSite"
+        android:title="공유 사이트" />
+    <item
+        android:id="@+id/nav_sharingReference"
+        android:title="공유 자료실" />
+    <item
+        android:id="@+id/nav_notice"
+        android:title="공지사항" />
+    <item
+        android:id="@+id/nav_myPage"
+        android:title="마이페이지" >
+        <menu>
+            <item
+                android:id="@+id/nav_myPage_myInforUpdate"
+                android:title="회원 정보 수정"/>
+            <item
+                android:id="@+id/nav_myPage_passwordChange"
+                android:title="비밀번호 변경"/>
+        </menu>
+    </item>
+    <item
+        android:id="@+id/nav_setting"
+        android:title="설정" >
+        <menu>
+            <item
+                android:id="@+id/nav_setting_codeManager"
+                android:title="코드 관리"/>
+            <item
+                android:id="@+id/nav_setting_userManager"
+                android:title="사용자 관리"/>
+            <item
+                android:id="@+id/nav_setting_turnService"
+                android:title="서비스 전환"/>
+            <item
+                android:id="@+id/nav_setting_companyInforUpdate"
+                android:title="회사 정보 수정"/>
+        </menu>
+    </item>
+    <item
+        android:id="@+id/nav_customerCenter"
+        android:title="고객센터" >
+        <menu>
+            <item
+                android:id="@+id/nav_customerCenter_VOC"
+                android:title="고객의 소리"/>
+            <item
+                android:id="@+id/nav_customerCenter_termsAndConditions"
+                android:title="이용약관"/>
+            <item
+                android:id="@+id/nav_customerCenter_personalInforHandlingPolicy"
+                android:title="개인정보 처리방침" />
+        </menu>
+    </item>
+
+</menu>

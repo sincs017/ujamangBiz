@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:id="@id/navigation_dashboard"
+        android:icon="@drawable/ic_baseline_dashboard_24"
+        android:title="Dashboard"/>
+
+    <item android:id="@id/navigation_project"
+        android:icon="@drawable/ic_baseline_work_24"
+        android:title="Project"/>
+
+    <item android:id="@id/navigation_schedule"
+        android:icon="@drawable/ic_baseline_calendar_month_24"
+        android:title="Schedule"/>
+
+    <item android:id="@id/navigation_setting"
+        android:icon="@drawable/ic_baseline_settings_24"
+        android:title="Setting"/>
+
+    <item android:id="@id/navigation_drawer"
+        android:icon="@drawable/ic_baseline_dehaze_24"
+        android:title="Drawer"/>
+
+</menu>
