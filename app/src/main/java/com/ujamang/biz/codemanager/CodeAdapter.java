@@ -36,8 +36,7 @@ public class CodeAdapter extends RecyclerView.Adapter<CodeAdapter.CodeViewHolder
     @NonNull
     @Override
     public CodeAdapter.CodeViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int viewType) {
-        View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.codemanager_detail_list_item, viewGroup, false);
-
+        View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.codemanager_list_item, viewGroup, false);
         CodeAdapter.CodeViewHolder viewHolder = new CodeAdapter.CodeViewHolder(view);
 
         return viewHolder;

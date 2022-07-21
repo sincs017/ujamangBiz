@@ -16,6 +16,7 @@ import android.widget.ImageButton;
 import com.google.android.material.appbar.CollapsingToolbarLayout;
 import com.google.android.material.appbar.MaterialToolbar;
 import com.ujamang.biz.R;
+import com.ujamang.biz.ui.project.ProjectItem;
 
 import java.util.ArrayList;
 
@@ -43,7 +44,6 @@ public class CodeRecyclerView extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
 
-
         //recyclerview
         RecyclerView mRecyclerView = (RecyclerView) findViewById(R.id.code_recyclerView);
         LinearLayoutManager mLinearLayoutManager = new LinearLayoutManager(this);
@@ -53,6 +53,14 @@ public class CodeRecyclerView extends AppCompatActivity {
         mArrayList = new ArrayList<>();
         mAdapter = new CodeAdapter(mArrayList);
         mRecyclerView.setAdapter(mAdapter);
+
+
+        //임시로 더미데이터 쌓아두기
+        for (int i=1; i<14; i++){
+            CodeItem data = new CodeItem("코드 " + i);
+            mArrayList.add(data);
+            mAdapter.notifyDataSetChanged();
+        }
 
         /*code_detail_button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -74,7 +82,7 @@ public class CodeRecyclerView extends AppCompatActivity {
     //appbar 메뉴 뒤로가기 이벤트 추가
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        switch (item.getItemId()){
+        switch (item.getItemId()) {
             case android.R.id.home:
                 finish();
                 return true;

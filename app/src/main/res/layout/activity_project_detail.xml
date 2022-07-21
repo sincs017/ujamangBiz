@@ -1,270 +1,302 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <androidx.core.widget.NestedScrollView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingTop="512dp"
-            android:paddingBottom="512dp"
-            />
-    </androidx.core.widget.NestedScrollView>
-
-    <com.google.android.material.appbar.AppBarLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:backgroundTint="@color/BLACK"
-        android:theme="@style/ThemeOverlay.AppCompat.Dark"
-        app:liftOnScroll="true"
-        >
-
-        <com.google.android.material.appbar.CollapsingToolbarLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:contentScrim="?attr/colorPrimary"
-            app:expandedTitleGravity="bottom"
-            app:layout_scrollFlags="scroll|exitUntilCollapsed"
-            app:scrimAnimationDuration="300"
-            app:title="@string/code_manager_title"
-            >
-
-            <com.google.android.material.appbar.MaterialToolbar
-                android:id="@+id/project_detail_toolbar"
-                android:layout_width="match_parent"
-                android:layout_height="?attr/actionBarSize"
-                app:layout_collapseMode="pin"
-                app:menu="@menu/codemanager_toolbar_menu">
-
-                <TextView
-                    android:id="@+id/project_detail_toolbar_title"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:gravity="center_vertical"
-                    android:text="@string/codemanager_detail_toolbar_title"/>
-            </com.google.android.material.appbar.MaterialToolbar>
-
-        </com.google.android.material.appbar.CollapsingToolbarLayout>
-    </com.google.android.material.appbar.AppBarLayout>
-
-    <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    <androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:context=".ui.project.ProjectDetail"
-        android:id="@+id/project_detail_fragment"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+        android:layout_height="match_parent">
 
-        <LinearLayout
+        <androidx.core.widget.NestedScrollView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="8dp"
-            android:orientation="vertical">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:id="@+id/TV_task_progress"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:paddingTop="4dp"
-                    android:paddingEnd="4dp"
-                    android:paddingBottom="4dp"
-                    android:text="진행중"
-                    android:textAppearance="@style/TextAppearance.MaterialComponents.Overline"
-                    android:textColor="@color/OVERLINE" />
-
-                <TextView
-                    android:id="@+id/TV_task_date_startend"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:padding="4dp"
-                    android:text="2022-03-08 ~ 2022-03-15 (시작일 ~ 마감일)"
-                    android:textAppearance="@style/TextAppearance.MaterialComponents.Caption" />
-
-            </LinearLayout>
+            app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
 
             <TextView
-                android:id="@+id/TV_task_name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="2. 개발 및 구현"
-                android:textAppearance="@style/TextAppearance.MaterialComponents.Headline5" />
+                android:paddingTop="512dp"
+                android:paddingBottom="512dp" />
+        </androidx.core.widget.NestedScrollView>
 
-            <com.google.android.material.divider.MaterialDivider
+        <com.google.android.material.appbar.AppBarLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/BLACK"
+            android:theme="@style/ThemeOverlay.AppCompat.Dark"
+            app:liftOnScroll="true">
+
+            <com.google.android.material.appbar.CollapsingToolbarLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                app:contentScrim="?attr/colorPrimary"
+                app:expandedTitleGravity="bottom"
+                app:layout_scrollFlags="scroll|exitUntilCollapsed"
+                app:scrimAnimationDuration="300"
+                app:title="@string/code_manager_title">
+
+                <com.google.android.material.appbar.MaterialToolbar
+                    android:id="@+id/project_detail_toolbar"
+                    android:layout_width="match_parent"
+                    android:layout_height="?attr/actionBarSize"
+                    app:layout_collapseMode="pin"
+                    app:menu="@menu/codemanager_toolbar_menu">
+
+                    <TextView
+                        android:id="@+id/project_detail_toolbar_title"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center_vertical"
+                        android:text="@string/codemanager_detail_toolbar_title" />
+                </com.google.android.material.appbar.MaterialToolbar>
+
+            </com.google.android.material.appbar.CollapsingToolbarLayout>
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:id="@+id/project_detail_fragment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior"
+            tools:context=".ui.project.ProjectDetail">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:id="@+id/TV_task_manager"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:paddingTop="4dp"
-                    android:paddingEnd="4dp"
-                    android:paddingBottom="4dp"
-                    android:text="작성자"
-                    android:textAppearance="@style/TextAppearance.MaterialComponents.Caption" />
-
-                <TextView
-                    android:id="@+id/TV_task_date_today"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:padding="4dp"
-                    android:text="2022-03-18 14-49 (발생일자)"
-                    android:textAppearance="@style/TextAppearance.MaterialComponents.Caption" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
+                android:layout_margin="8dp"
                 android:orientation="vertical">
-
-                <TextView
-                    android:id="@+id/TV_task_detail"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="상세내용 상세내용 상세내용 상세내용 상세내용 상세내용 상세내용 상세내용"
-                    android:textAppearance="@style/TextAppearance.MaterialComponents.Body2" />
-
-            </LinearLayout>
-
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:orientation="vertical">
-
-                <TextView
-                    android:id="@+id/TV_task_attached_file"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:paddingTop="4dp"
-                    android:paddingEnd="4dp"
-                    android:paddingBottom="4dp"
-                    android:text="첨부파일"
-                    android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1"
-                    android:textStyle="bold"/>
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
                     android:orientation="horizontal">
 
-                    <TableLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
+                    <TextView
+                        android:id="@+id/TV_task_progress"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingTop="4dp"
+                        android:paddingEnd="4dp"
+                        android:paddingBottom="4dp"
+                        android:text="진행중"
+                        android:textAppearance="@style/TextAppearance.MaterialComponents.Overline"
+                        android:textColor="@color/OVERLINE" />
 
-                        <!--RecyclerView로 채워넣어야겠지? 파일이 추가될때마다 한줄씩 늘어나도록.-->
-                        <!--TableLayout Row는 쓰는게 아닌듯-->
-                        <TableRow>
+                    <TextView
+                        android:id="@+id/TV_task_date_startend"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="4dp"
+                        android:text="2022-03-08 ~ 2022-03-15"
+                        android:textAppearance="@style/TextAppearance.MaterialComponents.Caption" />
+
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/TV_task_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="2. 개발 및 구현"
+                    android:textAppearance="@style/TextAppearance.MaterialComponents.Headline5" />
+
+                <com.google.android.material.divider.MaterialDivider
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/TV_task_manager"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingTop="4dp"
+                        android:paddingEnd="4dp"
+                        android:paddingBottom="4dp"
+                        android:text="작성자"
+                        android:textAppearance="@style/TextAppearance.MaterialComponents.Caption" />
+
+                    <TextView
+                        android:id="@+id/TV_task_date_today"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="4dp"
+                        android:text="2022-03-18 14-49"
+                        android:textAppearance="@style/TextAppearance.MaterialComponents.Caption" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/TV_task_detail"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="1. 코어소프트에서 진행 사업에 대한 회의 진행
+  1) 회의명 : 주간회의
+  2) 일시 : 매주 월요일   09:00
+  3) 회의록 등록 : 매주 금요일 17:00 까지 등록
+  4) 회의 참석 : 소순주, 채진상무, 김형곤부장, 강명훈차장
+
+2. 회의록 공유
+  1) 회의 참석자 및 이현덕실장, 홍한기부장, 윤지훈 수석, 이현정차장
+
+3. 회의록 작성 양식
+  1) 첨부파일을 참조하여 작성바람
+  2) 양식은 특성에 따라 수정하여도 됨
+
+4. 등록방법
+  1) 2022년도 코어소프트 주간회의 진행사항 => 이력에 등록 바랍니다
+끝."
+                        android:textAppearance="@style/TextAppearance.MaterialComponents.Body2" />
+
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/TV_task_attached_file"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingTop="4dp"
+                        android:paddingEnd="4dp"
+                        android:paddingBottom="4dp"
+                        android:text="첨부파일"
+                        android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1"
+                        android:textStyle="bold" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:src="@drawable/ic_baseline_insert_drive_file_24"/>
 
                             <TextView
                                 android:id="@+id/TV_task_attached_file_link"
-                                android:layout_width="match_parent"
+                                android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:paddingTop="4dp"
-                                android:paddingEnd="4dp"
-                                android:paddingBottom="4dp"
+                                android:padding="4dp"
                                 android:text="화면설계서.pptx"
-                                android:textAppearance="@style/TextAppearance.MaterialComponents.Body2" />
-                        </TableRow>
+                                android:textAppearance="@style/TextAppearance.MaterialComponents.Caption" />
 
-                        <TableRow>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:src="@drawable/ic_baseline_insert_drive_file_24"/>
 
                             <TextView
                                 android:id="@+id/TV_task_attached_file_link2"
-                                android:layout_width="match_parent"
+                                android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:paddingTop="4dp"
-                                android:paddingEnd="4dp"
-                                android:paddingBottom="4dp"
+                                android:padding="4dp"
                                 android:text="사이트맵.xls"
-                                android:textAppearance="@style/TextAppearance.MaterialComponents.Body2" />
-                        </TableRow>
+                                android:textAppearance="@style/TextAppearance.MaterialComponents.Caption" />
 
-                        <TableRow>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:src="@drawable/ic_baseline_insert_drive_file_24"/>
 
                             <TextView
                                 android:id="@+id/TV_task_attached_file_link3"
-                                android:layout_width="match_parent"
+                                android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:paddingTop="4dp"
-                                android:paddingEnd="4dp"
-                                android:paddingBottom="4dp"
+                                android:padding="4dp"
                                 android:text="프로그램 목록.xls"
-                                android:textAppearance="@style/TextAppearance.MaterialComponents.Body2" />
-                        </TableRow>
-                    </TableLayout>
+                                android:textAppearance="@style/TextAppearance.MaterialComponents.Caption" />
 
+                        </LinearLayout>
+
+
+                    </LinearLayout>
 
                 </LinearLayout>
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:layout_marginTop="8dp">
-
-                <TextView
-                    android:id="@+id/TV_task_history"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:paddingTop="4dp"
-                    android:paddingEnd="4dp"
-                    android:paddingBottom="4dp"
-                    android:text="업무 이력 (3)"
-                    android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1"
-                    android:textStyle="bold"/>
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:orientation="vertical">
 
-                    <androidx.recyclerview.widget.RecyclerView
+                    <TextView
+                        android:id="@+id/TV_task_history"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingTop="4dp"
+                        android:paddingEnd="4dp"
+                        android:paddingBottom="4dp"
+                        android:text="업무 이력 (3)"
+                        android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1"
+                        android:textStyle="bold" />
+
+                    <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"/>
+                        android:layout_height="wrap_content">
+
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/project_detail_recyclerview"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent" />
+                    </LinearLayout>
+
+                    <Button
+                        android:id="@+id/temp_button"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="상세보기2" />
+
                 </LinearLayout>
 
-                <Button
-                    android:id="@+id/temp_button"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="상세보기2" />
 
             </LinearLayout>
 
+        </FrameLayout>
 
-        </LinearLayout>
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
-    </FrameLayout>
-
-</androidx.coordinatorlayout.widget.CoordinatorLayout>
-
-
+</androidx.core.widget.NestedScrollView>
 
     <!--세로 구분선-->
     <!--<View

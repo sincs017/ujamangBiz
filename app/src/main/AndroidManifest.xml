@@ -2,6 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     package="com.ujamang.biz">
+    <!-- 인터넷 권한 설정 -->
+    <uses-permission android:name="android.permission.INTERNET" /> <!-- 인터넷 연결 확인 -->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
         android:allowBackup="true"
@@ -13,9 +16,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Codemanager"
         tools:targetApi="31">
-        <activity
-            android:name=".ui.project.ProjectDetailSSub"
-            android:exported="true" />
+
         <activity
             android:name=".ui.project.ProjectDetailSub"
             android:exported="true" />
@@ -26,8 +27,14 @@
             android:name=".codemanager.CodeDetailCreate"
             android:exported="true" />
         <activity
-            android:name=".Login"
-            android:exported="true" />
+            android:name=".model.dto.auth.Login"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity
             android:name=".codemanager.CodeRecyclerView"
             android:exported="true" />
@@ -42,13 +49,7 @@
             android:exported="true" />
         <activity
             android:name=".MainActivity"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+            android:exported="true"></activity>
     </application>
 
 </manifest>

@@ -67,6 +67,13 @@ public class CodeDetailRecyclerView extends AppCompatActivity {
         mAdapter = new CodeDetailAdapter(mArrayList);
         mRecyclerView.setAdapter(mAdapter);
 
+        //임시로 더미데이터 쌓아두기
+        for (int i=1; i<17; i++){
+            CodeItem data = new CodeItem("코드 " + i);
+            mArrayList.add(data);
+            mAdapter.notifyDataSetChanged();
+        }
+
         //dialog 해보려고
         linearLayout = (LinearLayout) View.inflate(CodeDetailRecyclerView.this, R.layout.code_detail_dialog_create, null);
         //codeDetail_create_data = textInputEditText.getText().toString();

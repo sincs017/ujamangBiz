@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
+
+
 <androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -30,22 +32,21 @@
             app:contentScrim="?attr/colorPrimary"
             app:expandedTitleGravity="bottom"
             app:layout_scrollFlags="scroll|exitUntilCollapsed"
-            app:scrimAnimationDuration="300"
-            >
+            app:scrimAnimationDuration="300">
 
             <com.google.android.material.appbar.MaterialToolbar
                 android:id="@+id/codeManager_toolbar"
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
                 app:layout_collapseMode="pin"
-                app:menu="@menu/codemanager_detail_toolbar_menu" >
+                app:menu="@menu/codemanager_detail_toolbar_menu">
 
                 <TextView
                     android:id="@+id/code_title"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:gravity="center_vertical"
-                    android:text="@string/code_manager_title"/>
+                    android:text="@string/code_manager_title" />
             </com.google.android.material.appbar.MaterialToolbar>
 
         </com.google.android.material.appbar.CollapsingToolbarLayout>
@@ -54,25 +55,14 @@
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
 
-        <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-            xmlns:app="http://schemas.android.com/apk/res-auto"
-            xmlns:tools="http://schemas.android.com/tools"
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/code_recyclerView"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            tools:context=".codemanager.CodeDetailRecyclerView"
-            android:layout_margin="8dp">
+            android:layout_height="match_parent" />
 
-
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/code_recyclerView"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent" />
-
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.core.widget.NestedScrollView>
 

@@ -4,7 +4,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/GRAY">
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
@@ -62,13 +63,17 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            android:background="@color/white"
             android:orientation="vertical">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
                 android:orientation="horizontal">
 
                 <TextView
@@ -86,8 +91,7 @@
                     android:id="@+id/TV_task_date_startend"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:padding="4dp"
-                    android:text="2022-03-08 ~ 2022-03-15 (시작일 ~ 마감일)"
+                    android:text="2022-03-08 ~ 2022-03-15"
                     android:textAppearance="@style/TextAppearance.MaterialComponents.Caption" />
 
             </LinearLayout>
@@ -96,17 +100,23 @@
                 android:id="@+id/TV_task_name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
                 android:text="2. 개발 및 구현"
                 android:textAppearance="@style/TextAppearance.MaterialComponents.Headline5" />
 
             <com.google.android.material.divider.MaterialDivider
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp" />
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
                 android:orientation="horizontal">
 
                 <TextView
@@ -124,7 +134,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:padding="4dp"
-                    android:text="2022-03-18 14-49 (발생일자)"
+                    android:text="2022-03-18 14-49"
                     android:textAppearance="@style/TextAppearance.MaterialComponents.Caption" />
 
             </LinearLayout>
@@ -132,14 +142,29 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
+                android:layout_margin="8dp"
                 android:orientation="vertical">
 
                 <TextView
                     android:id="@+id/TV_task_detail"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="상세내용 상세내용 상세내용 상세내용 상세내용 상세내용 상세내용 상세내용"
+                    android:text="1. 코어소프트에서 진행 사업에 대한 회의 진행
+  1) 회의명 : 주간회의
+  2) 일시 : 매주 월요일   09:00
+  3) 회의록 등록 : 매주 금요일 17:00 까지 등록
+  4) 회의 참석 : 소순주, 채진상무, 김형곤부장, 강명훈차장
+
+2. 회의록 공유
+  1) 회의 참석자 및 이현덕실장, 홍한기부장, 윤지훈 수석, 이현정차장
+
+3. 회의록 작성 양식
+  1) 첨부파일을 참조하여 작성바람
+  2) 양식은 특성에 따라 수정하여도 됨
+
+4. 등록방법
+  1) 2022년도 코어소프트 주간회의 진행사항 => 이력에 등록 바랍니다
+끝."
                     android:textAppearance="@style/TextAppearance.MaterialComponents.Body2" />
 
             </LinearLayout>
@@ -167,59 +192,74 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="@color/white"
             android:orientation="vertical"
             android:padding="8dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical">
+                android:orientation="horizontal">
 
-                <TableLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
 
-                    <!--RecyclerView로 채워넣어야겠지? 파일이 추가될때마다 한줄씩 늘어나도록.-->
-                    <!--TableLayout Row는 쓰는게 아닌듯-->
-                    <TableRow>
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_baseline_insert_drive_file_24"/>
 
-                        <TextView
-                            android:id="@+id/TV_task_attached_file_link"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:paddingTop="4dp"
-                            android:paddingEnd="4dp"
-                            android:paddingBottom="4dp"
-                            android:text="화면설계서.pptx"
-                            android:textAppearance="@style/TextAppearance.MaterialComponents.Body2" />
-                    </TableRow>
+                    <TextView
+                        android:id="@+id/TV_task_attached_file_link"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="4dp"
+                        android:text="화면설계서.pptx"
+                        android:textAppearance="@style/TextAppearance.MaterialComponents.Caption" />
 
-                    <TableRow>
+                </LinearLayout>
 
-                        <TextView
-                            android:id="@+id/TV_task_attached_file_link2"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:paddingTop="4dp"
-                            android:paddingEnd="4dp"
-                            android:paddingBottom="4dp"
-                            android:text="사이트맵.xls"
-                            android:textAppearance="@style/TextAppearance.MaterialComponents.Body2" />
-                    </TableRow>
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
 
-                    <TableRow>
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_baseline_insert_drive_file_24"/>
 
-                        <TextView
-                            android:id="@+id/TV_task_attached_file_link3"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:paddingTop="4dp"
-                            android:paddingEnd="4dp"
-                            android:paddingBottom="4dp"
-                            android:text="프로그램 목록.xls"
-                            android:textAppearance="@style/TextAppearance.MaterialComponents.Body2" />
-                    </TableRow>
-                </TableLayout>
+                    <TextView
+                        android:id="@+id/TV_task_attached_file_link2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="4dp"
+                        android:text="사이트맵.xls"
+                        android:textAppearance="@style/TextAppearance.MaterialComponents.Caption" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_baseline_insert_drive_file_24"/>
+
+                    <TextView
+                        android:id="@+id/TV_task_attached_file_link3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="4dp"
+                        android:text="프로그램 목록.xls"
+                        android:textAppearance="@style/TextAppearance.MaterialComponents.Caption" />
+
+                </LinearLayout>
 
             </LinearLayout>
         </LinearLayout>
@@ -246,12 +286,14 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="8dp"
+            android:background="@color/white"
             android:orientation="vertical">
 
             <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/project_detail_recyclerview_sub"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent" />
+                android:layout_height="match_parent"
+                android:padding="8dp" />
 
         </LinearLayout>
 

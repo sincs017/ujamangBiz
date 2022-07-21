@@ -17,6 +17,9 @@
     <!--Project recyclerView-->
     <string name="project_category">project_category</string>
     <string name="project_name">project_name</string>
+    <string name="project_task_name">업무 이력 제목</string>
+    <string name="project_task_writer">업무 이력 작성자</string>
+    <string name="project_task_write_date">업무 이력 작성일</string>
 
     <!--drawer Layout-->
     <string name="start">Start</string>
