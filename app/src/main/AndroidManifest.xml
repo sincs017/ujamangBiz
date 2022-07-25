@@ -16,7 +16,18 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Codemanager"
         tools:targetApi="31">
+        <activity
+            android:name=".LoginActivity"
+            android:exported="true" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".LoginCheck"
+            android:exported="true" />
         <activity
             android:name=".ui.project.ProjectDetailSub"
             android:exported="true" />
@@ -26,15 +37,6 @@
         <activity
             android:name=".codemanager.CodeDetailCreate"
             android:exported="true" />
-        <activity
-            android:name=".model.dto.auth.Login"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
         <activity
             android:name=".codemanager.CodeRecyclerView"
             android:exported="true" />
@@ -49,7 +51,7 @@
             android:exported="true" />
         <activity
             android:name=".MainActivity"
-            android:exported="true"></activity>
+            android:exported="true" />
     </application>
 
 </manifest>
