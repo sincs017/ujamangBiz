@@ -1,6 +1,5 @@
-package com.ujamang.biz.codemanager;
+package com.ujamang.biz.ui.drawer.codemanager;
 
-import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -12,7 +11,6 @@ import android.view.View;
 import com.google.android.material.appbar.MaterialToolbar;
 import com.google.android.material.button.MaterialButton;
 import com.google.android.material.textfield.TextInputEditText;
-import com.google.android.material.textfield.TextInputLayout;
 import com.ujamang.biz.R;
 
 import java.util.Objects;
@@ -57,7 +55,7 @@ public class CodeDetailCreate extends AppCompatActivity {
 
 
 
-                Intent intent = new Intent(CodeDetailCreate.this, CodeDetailRecyclerView.class);
+                Intent intent = new Intent(CodeDetailCreate.this, CodeDetailActivity.class);
                 intent.putExtra("data", input);
                 startActivity(intent);
 

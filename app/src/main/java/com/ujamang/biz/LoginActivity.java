@@ -18,6 +18,7 @@ import com.google.gson.Gson;
 import com.ujamang.biz.library.extenstion.StringExtenstions;
 import com.ujamang.biz.model.dto.auth.Login;
 
+import org.apache.commons.lang3.StringUtils;
 import org.jetbrains.annotations.NotNull;
 
 import java.io.IOException;
@@ -50,6 +51,10 @@ public class LoginActivity extends AppCompatActivity {
     private SharedPreferences preferences;
 
 
+    //화면 시작하기 전에 자동로그인 되는지 체크부터 하기.
+    //SharedPreferences auto = getSharedPreferences("autoLogin", Activity.MODE_PRIVATE);
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -79,6 +84,7 @@ public class LoginActivity extends AppCompatActivity {
         //모드 => 0 (읽기,쓰기가능)
         //모드 => MODE_PRIVATE (이 앱에서만 사용가능)
         preferences = getSharedPreferences("Codemanager", Activity.MODE_PRIVATE);
+        SharedPreferences.Editor preferencesEdit = preferences.edit();
 
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -87,16 +93,25 @@ public class LoginActivity extends AppCompatActivity {
                 String userId = userIdEditText.getText().toString();
                 String password = passwordEditText.getText().toString();
 
-                /*PreferenceManager.setString(context, "companyId", companyIdEditText.getText().toString());
-                PreferenceManager.setString(context, "userId", userIdEditText.getText().toString());
-                PreferenceManager.setString(context, "password", passwordEditText.getText().toString());
-                Toast.makeText(context,"저장되었습니다.", Toast.LENGTH_SHORT);
-                getPreferences();*/
 
-                //그럼 비어있는 null값 체크는 언제 해줘야 좋을까?
-                /*StringExtenstions.isNullOrEmpty(CompanyId);
-                StringExtenstions.isNullOrEmpty(UserId);
-                StringExtenstions.isNullOrEmpty(Password);*/
+
+                //그럼 비어있는 null값 체크는 언제 해줘야 좋을까? 지금인가?
+                if (StringExtenstions.isNullOrEmpty(companyId) && StringExtenstions.isNullOrEmpty(userId)
+                && StringExtenstions.isNullOrEmpty(password)) {
+                    //Null 값 체크 통과
+                    if(companyId.equals("coresoft") && userId.equals("2206002") && password.equals("2206002*1")) { //AutoLogin.isChecked()
+                        //자동로그인
+
+                    } else {
+                        //일반로그인
+                    }
+                } else {
+                    //Null 값 체크 실패
+                }
+
+                    /*public static boolean isNullOrEmpty(String text) {
+                    return StringUtils.isBlank(text);
+                }*/
 
                 //회사아이디, 유저아이디, 비밀번호 중 null 값이 있는가?
                 //있으면 경고메세지
@@ -155,9 +170,9 @@ public class LoginActivity extends AppCompatActivity {
                     Request.Builder builder = new Request.Builder()
                             .url(apiUrl)
                             .post(requestBody);
-                    //헤더는 필요하면 쓰는건가? 잘 모른다.
+                    //헤더는 필요하면 쓰는건가? 잘 모른다.     //자꾸 헤더에 토큰을 같이 보내라고 하는데 여기에 보내면 되는거임??_JWT공부중
                     builder.addHeader("Content-type", "application/json");
-                    //builder.addHeader("Authorization", "Bearer $token");
+                    builder.addHeader("Authorization", "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6Imt3VkVPeGR3M1pjL2hWSGMvcVFDV2c9PSIsImdyb3Vwc2lkIjoia2dJaWtXc1psSlgvRXhyYkVESXNsUT09IiwibmJmIjoxNjU4ODA2MTc5LCJleHAiOjE2NjAxMDIxNzksImlhdCI6MTY1ODgwNjE3OSwiaXNzIjoiaHR0cHM6Ly91amFtYW5nLmJpeiIsImF1ZCI6Imh0dHBzOi8vdWphbWFuZy5iaXoifQ.ZB9_gTS9tKnLT4PKfe2hC-QaVmAHEsovpmtGPAQFNBA");
                     //이제야 트럭이 API로 출발하는거임. build(); 가 실행 함수.
                     Request request = builder.build();
 
@@ -307,6 +322,12 @@ public class LoginActivity extends AppCompatActivity {
                 + "\n REFRESHTOKENEPOCHEXPIRES =\n" + PreferenceManager.getString(context, "refreshTokenEpochExpires")
                 + "\n REFRESHTOKEN =\n" + PreferenceManager.getString(context, "refreshToken"));
     }
+
+    /*PreferenceManager.setString(context, "companyId", companyIdEditText.getText().toString());
+                PreferenceManager.setString(context, "userId", userIdEditText.getText().toString());
+                PreferenceManager.setString(context, "password", passwordEditText.getText().toString());
+                Toast.makeText(context,"저장되었습니다.", Toast.LENGTH_SHORT);
+                getPreferences();*/
 
     //StringExtenstions.isNullOrEmpty(CompanyId);
 

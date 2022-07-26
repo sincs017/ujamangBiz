@@ -1,4 +1,4 @@
-package com.ujamang.biz.codemanager;
+package com.ujamang.biz.ui.drawer.codemanager;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -9,18 +9,14 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.Button;
 import android.widget.ImageButton;
 
-import com.google.android.material.appbar.CollapsingToolbarLayout;
 import com.google.android.material.appbar.MaterialToolbar;
 import com.ujamang.biz.R;
-import com.ujamang.biz.ui.project.ProjectItem;
 
 import java.util.ArrayList;
 
-public class CodeRecyclerView extends AppCompatActivity {
+public class CodeActivity extends AppCompatActivity {
     //코드관리 대메뉴
 
     //appbar
@@ -83,12 +79,12 @@ public class CodeRecyclerView extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()) {
-            case android.R.id.home:
+            case android.R.id.home:     //뒤로가기
                 finish();
                 return true;
             case R.id.codemanager_detail_create_icon:
                 //일단 등록 페이지로 이동은 해야하니까..
-                Intent intent = new Intent(CodeRecyclerView.this, CodeDetailRecyclerView.class);
+                Intent intent = new Intent(CodeActivity.this, CodeDetailActivity.class);
                 startActivity(intent);
         }
         return super.onOptionsItemSelected(item);

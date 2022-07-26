@@ -1,4 +1,4 @@
-package com.ujamang.biz.codemanager;
+package com.ujamang.biz.ui.drawer.codemanager;
 
 import android.view.LayoutInflater;
 import android.view.View;

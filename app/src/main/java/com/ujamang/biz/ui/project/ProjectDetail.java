@@ -11,12 +11,9 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ImageButton;
 
 import com.google.android.material.appbar.MaterialToolbar;
 import com.ujamang.biz.R;
-import com.ujamang.biz.codemanager.CodeAdapter;
-import com.ujamang.biz.codemanager.CodeItem;
 
 import java.util.ArrayList;
 

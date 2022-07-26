@@ -1,4 +1,4 @@
-package com.ujamang.biz.codemanager;
+package com.ujamang.biz.ui.drawer.codemanager;
 
 public class CodeItem {
     private String code;

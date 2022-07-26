@@ -1,4 +1,4 @@
-package com.ujamang.biz.codemanager;
+package com.ujamang.biz.ui.drawer.codemanager;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -22,7 +22,7 @@ public class CodeDetailAdapter extends RecyclerView.Adapter<CodeDetailAdapter.Co
 
         public CodeDetailViewHolder(@NonNull View view) {
             super(view);
-            this.code = (TextView) view.findViewById(R.id.code_name);
+            this.code = (TextView) view.findViewById(R.id.code_detail_name);
 
 
         }

@@ -9,9 +9,10 @@ import java.util.regex.Pattern;
 public class StringExtenstions {
     /**
      * 널값, 공백 체크
-     * @see <a href="https://commons.apache.org/proper/commons-lang/apidocs/org/apache/commons/lang3/StringUtils.html">commons-lang3 StringUtils</a>
+     *
      * @param text 입력값
      * @return boolean
+     * @see <a href="https://commons.apache.org/proper/commons-lang/apidocs/org/apache/commons/lang3/StringUtils.html">commons-lang3 StringUtils</a>
      */
     public static boolean isNullOrEmpty(String text) {
         return StringUtils.isBlank(text);
@@ -19,6 +20,7 @@ public class StringExtenstions {
 
     /**
      * 비밀번호 유효성 체크 (8~30자, 영문, 숫자, 특수문자가 포함되어야합니다.)
+     *
      * @param text 입력값
      * @return boolean
      */
@@ -32,6 +34,7 @@ public class StringExtenstions {
 
     /**
      * 일반전화 체크 (일번전화와 1577-0000)
+     *
      * @param text 하이픈을 포함한 입력값
      * @return boolean
      */
@@ -46,6 +49,7 @@ public class StringExtenstions {
 
     /**
      * 핸드폰 체크
+     *
      * @param text 하이픈을 포함한 입력값
      * @return
      */
@@ -59,6 +63,7 @@ public class StringExtenstions {
 
     /**
      * 이메일 체크
+     *
      * @param text 입력값
      * @return boolean
      */
@@ -72,6 +77,7 @@ public class StringExtenstions {
 
     /**
      * 사업자 번호 체크
+     *
      * @param text 하이픈을 포함한 입력값
      * @return boolean
      */
@@ -85,6 +91,7 @@ public class StringExtenstions {
 
     /**
      * 숫자만 입력 체크
+     *
      * @param text 입력값
      * @return boolean
      */
@@ -94,6 +101,7 @@ public class StringExtenstions {
 
     /**
      * 한글만 입력 체크
+     *
      * @param text 입력값
      * @return boolean
      */
@@ -107,6 +115,7 @@ public class StringExtenstions {
 
     /**
      * 영문만 입력 체크
+     *
      * @param text 입력값
      * @return boolean
      */
@@ -120,6 +129,7 @@ public class StringExtenstions {
 
     /**
      * 영문 숫자만 입력 체크
+     *
      * @param text 입력값
      * @return boolean
      */
@@ -133,6 +143,7 @@ public class StringExtenstions {
 
     /**
      * 영문 숫자, 하이픈, 대시만 입력 체크
+     *
      * @param text 입력값
      * @return boolean
      */
@@ -146,6 +157,7 @@ public class StringExtenstions {
 
     /**
      * URL 체크
+     *
      * @param text 입력값
      * @return
      */
@@ -163,6 +175,7 @@ public class StringExtenstions {
 
     /**
      * 입력 최소 글자수 체크
+     *
      * @param text 입력값
      * @param size 최소값
      * @return boolean
@@ -181,6 +194,7 @@ public class StringExtenstions {
 
     /**
      * 입력 최대 글자수 체크
+     *
      * @param text 입력값
      * @param size 최소값
      * @return boolean
@@ -199,9 +213,10 @@ public class StringExtenstions {
 
     /**
      * 입력 최소~최대 글자수 체크
+     *
      * @param text 입력값
-     * @param min 최소값
-     * @param max 최대값
+     * @param min  최소값
+     * @param max  최대값
      * @return boolean
      */
     public static boolean isRangeLength(String text, int min, int max) {

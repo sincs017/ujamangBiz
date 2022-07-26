@@ -55,5 +55,6 @@ public class Login {
         public String authToken;
         public String refreshTokenEpochExpires;
         public String refreshToken;
+        //public List<String> item;
     }
 }

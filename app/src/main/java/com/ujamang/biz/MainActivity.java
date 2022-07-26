@@ -2,10 +2,8 @@ package com.ujamang.biz;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -15,16 +13,15 @@ import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
-import androidx.navigation.ui.NavigationUI;
 
 import com.google.android.material.navigation.NavigationBarView;
 import com.google.android.material.navigation.NavigationView;
-import com.ujamang.biz.R;
 import com.google.android.material.appbar.MaterialToolbar;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.ujamang.biz.codemanager.CodeRecyclerView;
+import com.ujamang.biz.ui.drawer.codemanager.CodeActivity;
 import com.ujamang.biz.ui.dashboard.DashboardFragment;
 import com.ujamang.biz.ui.drawer.DrawerFragment;
+import com.ujamang.biz.ui.drawer.notice.NoticeActivity;
 import com.ujamang.biz.ui.project.ProjectFragment;
 import com.ujamang.biz.ui.schedule.ScheduleFragment;
 import com.ujamang.biz.ui.setting.SettingFragment;
@@ -175,6 +172,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 break;
             case R.id.nav_notice:
                 Toast.makeText(this, "Notice", Toast.LENGTH_SHORT).show();
+                Intent intent_notice = new Intent(MainActivity.this, NoticeActivity.class);
+                startActivity(intent_notice);
                 break;
             //마이페이지
             case R.id.nav_myPage_myInforUpdate:
@@ -186,8 +185,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             //설정
             case R.id.nav_setting_codeManager:
                 Toast.makeText(this, "CodeManager", Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent(MainActivity.this, CodeRecyclerView.class);
-                startActivity(intent);
+                Intent intent_codeManager = new Intent(MainActivity.this, CodeActivity.class);
+                startActivity(intent_codeManager);
                 break;
             case R.id.nav_setting_userManager:
                 Toast.makeText(this, "UserManager", Toast.LENGTH_SHORT).show();

@@ -1,30 +1,25 @@
-package com.ujamang.biz.codemanager;
+package com.ujamang.biz.ui.drawer.codemanager;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.app.AlertDialog;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.LinearLayout;
-import android.widget.TextView;
 
-import com.google.android.material.appbar.CollapsingToolbarLayout;
 import com.ujamang.biz.R;
 import com.google.android.material.appbar.MaterialToolbar;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
 
 import java.util.ArrayList;
-import java.util.Objects;
 
-public class CodeDetailRecyclerView extends AppCompatActivity {
+public class CodeDetailActivity extends AppCompatActivity {
     //코드관리 소메뉴
 
     //appbar
@@ -75,7 +70,7 @@ public class CodeDetailRecyclerView extends AppCompatActivity {
         }
 
         //dialog 해보려고
-        linearLayout = (LinearLayout) View.inflate(CodeDetailRecyclerView.this, R.layout.code_detail_dialog_create, null);
+        linearLayout = (LinearLayout) View.inflate(CodeDetailActivity.this, R.layout.code_detail_dialog_create, null);
         //codeDetail_create_data = textInputEditText.getText().toString();
         //String new_code_name = textInputEditText.getText().toString();
 
@@ -130,7 +125,7 @@ public class CodeDetailRecyclerView extends AppCompatActivity {
                 return true;
             case R.id.codemanager_detail_create_icon:
                 //일단 등록 페이지로 이동은 해야하니까..
-                Intent intent = new Intent(CodeDetailRecyclerView.this, CodeDetailCreate.class);
+                Intent intent = new Intent(CodeDetailActivity.this, CodeDetailCreate.class);
                 startActivity(intent);
 
                 //dialog 코드

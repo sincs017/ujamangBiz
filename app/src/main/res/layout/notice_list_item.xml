@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardElevation="0dp"
+    app:cardPreventCornerOverlap="true"
+    android:id="@+id/project_cardView"
+    android:clickable="true"
+    android:focusable="true"
+    android:checkable="true"
+    android:layout_margin="8dp">
+
+        <TextView
+            android:id="@+id/notice_user_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="8dp"
+            android:text="사내 공지사항"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle2"/>
+
+        <!--더보기 버튼 sheet bottom 으로 넘어가는 버튼을 만들 예정이다.-->
+
+
+</com.google.android.material.card.MaterialCardView>
