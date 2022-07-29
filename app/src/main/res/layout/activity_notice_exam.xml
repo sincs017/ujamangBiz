@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.drawer.notice.NoticeExam">
+
+    <EditText
+        android:id="@+id/et_ok"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:ignore="MissingConstraints" />
+
+    <EditText
+        android:id="@+id/et_totalcount"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:ignore="MissingConstraints"
+        app:layout_constraintTop_toBottomOf="@+id/et_ok"/>
+
+    <EditText
+        android:id="@+id/et_item"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:ignore="MissingConstraints"
+        app:layout_constraintTop_toBottomOf="@+id/et_totalcount"/>
+
+    <EditText
+        android:id="@+id/et_blank"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:ignore="MissingConstraints"
+        app:layout_constraintTop_toBottomOf="@+id/et_item"/>
+
+    <Button
+        android:id="@+id/button_test"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="테스트 버튼"
+        app:layout_constraintTop_toBottomOf="@id/et_blank"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
