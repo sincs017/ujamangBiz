@@ -11,13 +11,31 @@
     android:checkable="true"
     android:layout_margin="8dp">
 
-        <TextView
-            android:id="@+id/notice_user_name"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="8dp"
-            android:text="사내 공지사항"
-            android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle2"/>
+            android:orientation="vertical"
+            android:padding="8dp">
+
+                <TextView
+                    android:id="@+id/notice_user_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="사내 공지사항"
+                    android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"/>
+
+                <TextView
+                    android:id="@+id/notice_user_registerDate"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="작성일"
+                    android:textAppearance="@style/TextAppearance.MaterialComponents.Caption"/>
+
+                <!--더보기 버튼 sheet bottom 으로 넘어가는 버튼을 만들 예정이다.-->
+
+        </LinearLayout>
+
+
 
         <!--더보기 버튼 sheet bottom 으로 넘어가는 버튼을 만들 예정이다.-->
 

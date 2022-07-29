@@ -33,7 +33,7 @@ public class PreferenceManager {
     }*/
 
     //이거 맞냐?
-    public static void setasdf(Context context, String key, Login.Response value){
+    /*public static void setasdf(Context context, String key, Login.Response value){
         PreferenceManager.setString(context, "ok", apiResponse.ok ? "성공" : "실패");
         PreferenceManager.setString(context, "memberCompany", apiResponse.memberCompany);
         PreferenceManager.setString(context, "memberId", apiResponse.memberId);
@@ -50,7 +50,7 @@ public class PreferenceManager {
         PreferenceManager.setString(context, "authToken", apiResponse.authToken);
         PreferenceManager.setString(context, "refreshTokenEpochExpires", apiResponse.refreshTokenEpochExpires);
         PreferenceManager.setString(context, "refreshToken", apiResponse.refreshToken);
-    }
+    }*/
 
     /**
      * String 값 저장

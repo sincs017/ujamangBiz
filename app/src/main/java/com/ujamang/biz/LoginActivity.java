@@ -47,7 +47,7 @@ public class LoginActivity extends AppCompatActivity {
 
     //SharedPreferences 사용하기
     private TextView login_result;
-    private Context context;
+    private static Context context;
     private SharedPreferences preferences;
 
 
@@ -94,7 +94,6 @@ public class LoginActivity extends AppCompatActivity {
                 String password = passwordEditText.getText().toString();
 
 
-
                 //그럼 비어있는 null값 체크는 언제 해줘야 좋을까? 지금인가?
                 if (StringExtenstions.isNullOrEmpty(companyId) && StringExtenstions.isNullOrEmpty(userId)
                 && StringExtenstions.isNullOrEmpty(password)) {
@@ -108,10 +107,6 @@ public class LoginActivity extends AppCompatActivity {
                 } else {
                     //Null 값 체크 실패
                 }
-
-                    /*public static boolean isNullOrEmpty(String text) {
-                    return StringUtils.isBlank(text);
-                }*/
 
                 //회사아이디, 유저아이디, 비밀번호 중 null 값이 있는가?
                 //있으면 경고메세지
@@ -172,7 +167,7 @@ public class LoginActivity extends AppCompatActivity {
                             .post(requestBody);
                     //헤더는 필요하면 쓰는건가? 잘 모른다.     //자꾸 헤더에 토큰을 같이 보내라고 하는데 여기에 보내면 되는거임??_JWT공부중
                     builder.addHeader("Content-type", "application/json");
-                    builder.addHeader("Authorization", "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6Imt3VkVPeGR3M1pjL2hWSGMvcVFDV2c9PSIsImdyb3Vwc2lkIjoia2dJaWtXc1psSlgvRXhyYkVESXNsUT09IiwibmJmIjoxNjU4ODA2MTc5LCJleHAiOjE2NjAxMDIxNzksImlhdCI6MTY1ODgwNjE3OSwiaXNzIjoiaHR0cHM6Ly91amFtYW5nLmJpeiIsImF1ZCI6Imh0dHBzOi8vdWphbWFuZy5iaXoifQ.ZB9_gTS9tKnLT4PKfe2hC-QaVmAHEsovpmtGPAQFNBA");
+                    //builder.addHeader("Authorization", "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6Imt3VkVPeGR3M1pjL2hWSGMvcVFDV2c9PSIsImdyb3Vwc2lkIjoia2dJaWtXc1psSlgvRXhyYkVESXNsUT09IiwibmJmIjoxNjU4ODA2MTc5LCJleHAiOjE2NjAxMDIxNzksImlhdCI6MTY1ODgwNjE3OSwiaXNzIjoiaHR0cHM6Ly91amFtYW5nLmJpeiIsImF1ZCI6Imh0dHBzOi8vdWphbWFuZy5iaXoifQ.ZB9_gTS9tKnLT4PKfe2hC-QaVmAHEsovpmtGPAQFNBA");
                     //이제야 트럭이 API로 출발하는거임. build(); 가 실행 함수.
                     Request request = builder.build();
 
@@ -202,11 +197,36 @@ public class LoginActivity extends AppCompatActivity {
                                             //불량이 아니면 내용물들을 모두 SharedPreferences 에 저장한다.
                                             //1:1 노가다 매칭으로 하자.
 
+                                            preferencesEdit.putBoolean("ok", apiResponse.ok);
+                                            preferencesEdit.putString("memberCompany", apiResponse.memberCompany);
+                                            preferencesEdit.putString("memberId", apiResponse.memberId);
+                                            preferencesEdit.putString("memberNo", apiResponse.memberNo);
+                                            preferencesEdit.putString("officePositionUserCodeName", apiResponse.officePositionUserCodeName);
+                                            preferencesEdit.putString("nameKorean", apiResponse.nameKorean);
+                                            preferencesEdit.putString("memberGradeCommonCode", apiResponse.memberGradeCommonCode);
+                                            preferencesEdit.putString("memberTypeCommonCode", apiResponse.memberTypeCommonCode);
+                                            preferencesEdit.putString("memberTypeCommonCodeName", apiResponse.memberTypeCommonCodeName);
+                                            preferencesEdit.putString("freeMemberExpired", apiResponse.freeMemberExpired);
+                                            preferencesEdit.putString("memberExpired", apiResponse.memberExpired);
+                                            preferencesEdit.putString("serviceStartDate", apiResponse.serviceStartDate);
+                                            preferencesEdit.putString("serviceEndDate", apiResponse.serviceEndDate);
+                                            preferencesEdit.putString("authToken", apiResponse.authToken);
+                                            preferencesEdit.putString("refreshTokenEpochExpires", apiResponse.refreshTokenEpochExpires);
+                                            preferencesEdit.putString("refreshToken", apiResponse.refreshToken);
+                                            preferencesEdit.apply();
+
+                                            //login_result.setText(preferences.getString("authToken", "none"));
+
+                                            login_result.setText("ok =\n" + preferences.getBoolean("ok", false)
+                                                    + "\n AUTHTOKEN =\n" + preferences.getString("authToken", "none")
+                                                    + "\n REFRESHTOKENEPOCHEXPIRES =\n" + preferences.getString("refreshTokenEpochExpires", "none")
+                                                    + "\n REFRESHTOKEN =\n" + preferences.getString("refreshToken", "none"));
+
                                             //PreferenceManager.setResponse(context, "apiResponse", apiResponse);
                                             //apiResponse의 모든 body 내용을 한번에 SharedPreferences 저장해주는 메서드를 만들자.
                                             //PreferenceManager.setasdf(context, ""/*key를 줘야하는디?*/, apiResponse);
-                                            setPreferencesLogin();
-                                            getPreferencesLogin();
+                                            ///setPreferencesLogin();
+                                            ///getPreferencesLogin();
 
                                             //그리고 다음 액티비티로 이동한다.
                                             Intent intent = new Intent(LoginActivity.this, MainActivity.class);

@@ -1,30 +1,24 @@
-package com.ujamang.biz.ui.drawer.notice;
+package com.ujamang.biz.ui.drawer.notice.detail;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.Activity;
-import android.content.Context;
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.TextView;
 
 import com.google.android.material.appbar.MaterialToolbar;
 import com.google.gson.Gson;
-import com.ujamang.biz.PreferenceManager;
 import com.ujamang.biz.R;
 import com.ujamang.biz.model.dto.notice.user.NoticeUser;
-import com.ujamang.biz.ui.drawer.codemanager.CodeActivity;
-import com.ujamang.biz.ui.drawer.codemanager.CodeDetailActivity;
-import com.ujamang.biz.ui.drawer.codemanager.CodeItem;
+import com.ujamang.biz.model.dto.notice.user.NoticeUserDetail;
+import com.ujamang.biz.ui.drawer.notice.NoticeItem;
 
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
@@ -36,54 +30,48 @@ import okhttp3.HttpUrl;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
-import okhttp3.ResponseBody;
 
-public class NoticeActivity extends AppCompatActivity {
-    //공지사항 액티비티
+public class NoticeDetailActivity extends AppCompatActivity {
+    //공지사항 세부사항 액티비티
 
     //appbar
     private MaterialToolbar mToolbar;
 
-    //recyclerview
-    private ArrayList<NoticeItem> mArrayList;
-    private NoticeUserAdapter mAdapter;
+    //TextView
+    private TextView TV_notice_title;
+    private TextView TV_notice_writer;
+    private TextView TV_notice_registerDate;
+    private TextView TV_notice_content;
 
-    //SharedPreferences
-    private Context context;
-    //dto 매칭
-    private NoticeUser.Response noticeUser;
-
-    //로그인 하자
+    //SharedPreferences 정보 이용
     private SharedPreferences preferences;
+    //dto 매칭
+    private NoticeUserDetail.Response noticeUserDetail;
     //Okhttp API 호출 이용
     private OkHttpClient client;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_notice);
+        setContentView(R.layout.activity_notice_detail);
 
         //이놈은 LoginActivity에서 저장한 쉐어프리퍼렌스 값을 다른 액티비티에서도 불러오기 위해 무조건 작성해야하는 한줄 코드이다.
         preferences = getSharedPreferences("Codemanager", Activity.MODE_PRIVATE); //preferences.getString("authToken", "none");
+
+        TV_notice_title = findViewById(R.id.TV_notice_title);
+        TV_notice_writer = findViewById(R.id.TV_notice_writer);
+        TV_notice_registerDate = findViewById(R.id.TV_notice_registerDate);
+        TV_notice_content = findViewById(R.id.TV_notice_content);
 
         //appbar
         mToolbar = findViewById(R.id.notice_toolbar);
         setSupportActionBar(mToolbar);
         //appbar 뒤로가기버튼
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
-        //recyclerview
-        RecyclerView mRecyclerView = (RecyclerView) findViewById(R.id.notice_user_recyclerView);
-        LinearLayoutManager mLinearlayoutmanager = new LinearLayoutManager(this);
-        mRecyclerView.setLayoutManager(mLinearlayoutmanager);
-
-        mArrayList = new ArrayList<>();
-        mAdapter = new NoticeUserAdapter(mArrayList);
-        mRecyclerView.setAdapter(mAdapter);
+        //getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         client = new OkHttpClient();
         requestAsyncGetHttp();
+
     }
 
     //appbar 메뉴 디자인 추가 : 여기서는 검색버튼이 있어야 함.
@@ -115,14 +103,14 @@ public class NoticeActivity extends AppCompatActivity {
             Gson gson = new Gson();
 
             //TODO [전송 url 정의 실시]
-            String url = "https://api.ujamang.biz//api/v1/notice/member/coresoft/2022062000001";    //얘는 http가 아니고 https라고 써야 한다.
+            String url = "https://api.ujamang.biz//api/v1/Notice/member/coresoft/2022062000001/1";    //얘는 http가 아니고 https라고 써야 한다.
             //=> 관련 에러 문장 CLEARTEXT communication to api.ujamang.biz not permitted by network security policy
 
-            //TODO [파라미터값 선언 실시]
+            //System.out.println();
+
+            //TODO [파라미터값 선언 실시 : 세부사항 불러오기에는 파라미터가 필요한게 없다.]
             Map params = new HashMap();
-            params.put("p", 1);
-            params.put("rpp", 15);
-            params.put("q", "");        //이놈들은 url 뒤에 붙일 파라미터들은 이것들이 있습니다~ 라고 선언하는것. put 해서 집어 넣는거임.
+
             // debug돌려보니까 url 뒷부분에 파라미터로 하나씩 추가되더라.
 
             //TODO [url에 파라미터 추가 실시]
@@ -177,15 +165,22 @@ public class NoticeActivity extends AppCompatActivity {
 
                                 //이거 부장님이 도와주셨다.
                                 //NoticeUser클래스 안에 static으로 Response 클래스를 써서 한번 더 덮어주면 된다.
-                                noticeUser = gson.fromJson(responseData, NoticeUser.Response.class);
+                                noticeUserDetail = gson.fromJson(responseData, NoticeUserDetail.Response.class);
 
+                                System.out.println("title : " + noticeUserDetail.title);
+                                System.out.println("registerDate : " + noticeUserDetail.registerDate);
+                                System.out.println("content : " + noticeUserDetail.content);
+
+                                TV_notice_title.setText(noticeUserDetail.title);
+                                TV_notice_registerDate.setText(noticeUserDetail.registerDate);
+                                TV_notice_content.setText(noticeUserDetail.content);
 
                                 //boolean으로 성공은 띄웠다. 일단 성공은 떴으니까 authToken도 잘 맞고, 바로 윗줄에 클래스 매칭도 잘 된거다.
                                 //근데 이제 이거 가지고 recyclerview에 띄우는 것과, authToken을 가지고 refreshToken과 함께 interceptor도 해줘야한다.
                                 //여기까지가 220728 저녁 8시. 퇴근이다.
                                 //et_ok.setText(noticeUser.ok ? "성공" : "실패");
                                 //System.out.println(noticeUser.totalCount);
-                                System.out.println("ok : " + (noticeUser.ok ? "성공" : "실패"));
+                                /*System.out.println("ok : " + (noticeUser.ok ? "성공" : "실패"));
                                 System.out.println("totalCount : " + noticeUser.totalCount);
                                 System.out.println("idx : " + noticeUser.item.get(0).idx);
                                 System.out.println("title : " + noticeUser.item.get(0).title);
@@ -194,15 +189,15 @@ public class NoticeActivity extends AppCompatActivity {
                                 System.out.println("idx : " + noticeUser.item.get(1).idx);
                                 System.out.println("title : " + noticeUser.item.get(1).title);
                                 System.out.println("hits : " + noticeUser.item.get(1).hits);
-                                System.out.println("registerDate : " + noticeUser.item.get(1).registerDate);
+                                System.out.println("registerDate : " + noticeUser.item.get(1).registerDate);*/
                                 //System.out.println(noticeUser.item.get(2).idx);
                                 //et_totalCount.setText(String.valueOf(noticeUser.totalCount));
 
-                                for (int i=0; i<2; i++){
+                                /*for (int i=0; i<2; i++){
                                     NoticeItem noticeItem = new NoticeItem(noticeUser.item.get(i).title, noticeUser.item.get(i).registerDate);
                                     mArrayList.add(noticeItem);
                                     mAdapter.notifyDataSetChanged();
-                                }
+                                }*/
                             }
                         });
                     } catch (Exception e){

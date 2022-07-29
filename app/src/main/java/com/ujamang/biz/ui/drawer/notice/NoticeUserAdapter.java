@@ -18,13 +18,39 @@ public class NoticeUserAdapter extends RecyclerView.Adapter<NoticeUserAdapter.No
 
     private ArrayList<NoticeItem> mList;
 
+    /*================클릭이벤트================*//*
+    //OnItemClickListener 인터페이스 선언
+    public interface OnItemClickListener{
+        void onItemClicked(int position, String data);
+    }
+
+    //OnItemClickListener 참조 변수 선언
+    private OnItemClickListener itemClickListener;
+
+    //OnItemClickListener 전달 메소드
+    public void setOnItemClickListener (OnItemClickListener listener){
+        itemClickListener = listener;
+    }
+
+
+    *//*================클릭이벤트================*/
+
     public class NoticeUserViewHolder extends RecyclerView.ViewHolder{
         protected TextView notice;
+        protected TextView registerDate;
 
         public NoticeUserViewHolder(@NonNull View view){
             super(view);
             this.notice = (TextView) view.findViewById(R.id.notice_user_name);  //CardView랑 연결하는거임.
+            this.registerDate = (TextView) view.findViewById(R.id.notice_user_registerDate);
+
+
+            /** 여기서 click listener 설정
+             * https://kadosholy.tistory.com/59
+             * 여기서 보고 하다가 멈췄음.**/
         }
+
+
     }
 
     public NoticeUserAdapter(ArrayList<NoticeItem> mList) { //생성자
@@ -45,6 +71,7 @@ public class NoticeUserAdapter extends RecyclerView.Adapter<NoticeUserAdapter.No
         //실질적으로 데이터가 바인딩 되는 부분.. 그러나 여기가 아니라 NoticeActivity에서 데이터를 지정해서 이곳에 쏴주는 방법도 있다.
         //그 방법으로 해야할듯.
         viewHolder.notice.setText(mList.get(position).getNotice());
+        viewHolder.registerDate.setText(mList.get(position).getRegisterDate());
     }
 
     @Override

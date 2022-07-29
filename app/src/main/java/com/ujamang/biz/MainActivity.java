@@ -22,6 +22,8 @@ import com.ujamang.biz.ui.drawer.codemanager.CodeActivity;
 import com.ujamang.biz.ui.dashboard.DashboardFragment;
 import com.ujamang.biz.ui.drawer.DrawerFragment;
 import com.ujamang.biz.ui.drawer.notice.NoticeActivity;
+import com.ujamang.biz.ui.drawer.notice.NoticeExam;
+import com.ujamang.biz.ui.drawer.notice.detail.NoticeDetailActivity;
 import com.ujamang.biz.ui.project.ProjectFragment;
 import com.ujamang.biz.ui.schedule.ScheduleFragment;
 import com.ujamang.biz.ui.setting.SettingFragment;
@@ -172,7 +174,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 break;
             case R.id.nav_notice:
                 Toast.makeText(this, "Notice", Toast.LENGTH_SHORT).show();
-                Intent intent_notice = new Intent(MainActivity.this, NoticeActivity.class);
+                Intent intent_notice = new Intent(MainActivity.this, NoticeDetailActivity.class);
                 startActivity(intent_notice);
                 break;
             //마이페이지
