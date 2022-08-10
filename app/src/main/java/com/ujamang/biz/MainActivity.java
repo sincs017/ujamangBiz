@@ -174,7 +174,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 break;
             case R.id.nav_notice:
                 Toast.makeText(this, "Notice", Toast.LENGTH_SHORT).show();
-                Intent intent_notice = new Intent(MainActivity.this, NoticeDetailActivity.class);
+                Intent intent_notice = new Intent(MainActivity.this, NoticeActivity.class);
                 startActivity(intent_notice);
                 break;
             //마이페이지

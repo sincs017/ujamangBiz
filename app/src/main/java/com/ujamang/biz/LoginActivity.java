@@ -237,6 +237,8 @@ public class LoginActivity extends AppCompatActivity {
                                             //이 메세지는 API에 이미 저장되어 있는 메세지이다.
                                             //아이디가 일치하지 않습니다 또는 비밀번호가 일치하지 않습니다. 이런식으로 오겠지?
 
+                                            /** Login 실패시 스낵바 or 메세지를 띄우거나 빨간색으로 표시하면 된다.*/
+
                                         }
 
                                         //if apiResponse.ok

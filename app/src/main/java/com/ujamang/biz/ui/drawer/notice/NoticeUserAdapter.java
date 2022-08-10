@@ -16,6 +16,30 @@ import java.util.ArrayList;
 public class NoticeUserAdapter extends RecyclerView.Adapter<NoticeUserAdapter.NoticeUserViewHolder> {
     //사내 공지사항 어댑터
 
+    // OnClickListener Custom ----------------------------------------
+    public interface OnItemClickListener {
+        void onItemClick(int pos);
+    }
+
+    private OnItemClickListener onItemClickListener = null;
+
+    public void setOnItemClickListener(OnItemClickListener listener){
+        this.onItemClickListener = listener;
+    }
+    // OnClickListener Custom ----------------------------------------
+
+    // OnLongClickListener Custom ------------------------------------
+    public interface OnLongItemClickListener{
+        void onLongItemClick(int pos);
+    }
+
+    private OnLongItemClickListener onLongItemClickListener = null;
+
+    public void setOnLongItemClickListener(OnLongItemClickListener listener){
+        this.onLongItemClickListener = listener;
+    }
+    // OnLongClickListener Custom ------------------------------------
+
     private ArrayList<NoticeItem> mList;
 
     /*================클릭이벤트================*//*
@@ -44,13 +68,38 @@ public class NoticeUserAdapter extends RecyclerView.Adapter<NoticeUserAdapter.No
             this.notice = (TextView) view.findViewById(R.id.notice_user_name);  //CardView랑 연결하는거임.
             this.registerDate = (TextView) view.findViewById(R.id.notice_user_registerDate);
 
-
             /** 여기서 click listener 설정
              * https://kadosholy.tistory.com/59
              * 여기서 보고 하다가 멈췄음.**/
+
+            /** https://taek2.tistory.com/14 */
+            notice.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    int position = getBindingAdapterPosition();
+                    if (position != RecyclerView.NO_POSITION){
+                        if (onItemClickListener != null){
+                            onItemClickListener.onItemClick(position);
+                        }
+                    }
+                }
+            });
+
+            notice.setOnLongClickListener(new View.OnLongClickListener() {
+                @Override
+                public boolean onLongClick(View v) {
+                    int position = getBindingAdapterPosition();
+                    if (position != RecyclerView.NO_POSITION){
+                        if (onLongItemClickListener != null){
+                            onLongItemClickListener.onLongItemClick(position);
+                            return true;
+                        }
+                    }
+                    return false;
+                }
+            });
+
         }
-
-
     }
 
     public NoticeUserAdapter(ArrayList<NoticeItem> mList) { //생성자

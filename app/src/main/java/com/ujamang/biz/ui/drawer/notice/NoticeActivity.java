@@ -13,6 +13,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 import com.google.android.material.appbar.MaterialToolbar;
 import com.google.gson.Gson;
@@ -22,6 +23,7 @@ import com.ujamang.biz.model.dto.notice.user.NoticeUser;
 import com.ujamang.biz.ui.drawer.codemanager.CodeActivity;
 import com.ujamang.biz.ui.drawer.codemanager.CodeDetailActivity;
 import com.ujamang.biz.ui.drawer.codemanager.CodeItem;
+import com.ujamang.biz.ui.drawer.notice.detail.NoticeDetailActivity;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -80,7 +82,28 @@ public class NoticeActivity extends AppCompatActivity {
 
         mArrayList = new ArrayList<>();
         mAdapter = new NoticeUserAdapter(mArrayList);
+
+        mAdapter.setOnItemClickListener(new NoticeUserAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(int pos) {
+                Toast.makeText(getApplicationContext(), "onItemClick position : " + pos, Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(NoticeActivity.this, NoticeDetailActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        mAdapter.setOnLongItemClickListener(new NoticeUserAdapter.OnLongItemClickListener() {
+            @Override
+            public void onLongItemClick(int pos) {
+                Toast.makeText(getApplicationContext(), "onLongItemClick position : " + pos, Toast.LENGTH_SHORT).show();
+            }
+        });
+
         mRecyclerView.setAdapter(mAdapter);
+        //recyclerview
+
+
+
 
         client = new OkHttpClient();
         requestAsyncGetHttp();
